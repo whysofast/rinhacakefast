@@ -13,26 +13,30 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 @RestController
 @RequestMapping("/clientes")
-class CostumerController(private val costumerService: CostumerService) {
+class CostumerController(
+    private val costumerService: CostumerService
+
+) {
 
     @GetMapping("{id}/extrato")
     suspend fun getBankStatement(
         @PathVariable("id") costumerId: Long
     ): ResponseEntity<BankStatementResponseDTO>? {
-
+        costumerService.getBankStatement(costumerId)
         return null
     }
 
     @PostMapping("{id}/transacoes")
     suspend fun createTransaction(
         @PathVariable("id") costumerId: Long,
-        @RequestBody transactionRequest: TransactionRequestDTO
-    ): TransactionResponseDTO? {
-        TODO()
+        @RequestBody transactionRequest: Mono<TransactionRequestDTO>
+    ): ResponseEntity<TransactionResponseDTO> {
+
+//        ResponseEntity.ok(costumerService.createTransaction(costumerId, transactionRequest))
+        return ResponseEntity.ok(costumerService.createTransaction(costumerId, transactionRequest))
     }
 }
-
-

@@ -1,5 +1,6 @@
 package com.example.rinhacakefast.service
 
+import com.example.rinhacakefast.entity.CostumerEntity
 import com.example.rinhacakefast.repository.CostumerRepository
 import jakarta.annotation.PostConstruct
 import org.springframework.stereotype.Service
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Service
 class CreateInitialDataService(
     private val costumerRepository: CostumerRepository
 ) {
-
     @PostConstruct
     fun start() {
         println("Creating initial Data")
@@ -26,6 +26,5 @@ class CreateInitialDataService(
         ).subscribe()
 
         println("Created initial Data")
-
     }
 }

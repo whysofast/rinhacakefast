@@ -1,7 +1,6 @@
 package com.example.rinhacakefast.controller.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.springframework.stereotype.Service
 
 data class TransactionRequestDTO(
     @JsonProperty("valor")
@@ -11,7 +10,7 @@ data class TransactionRequestDTO(
     val type: String,
 
     @JsonProperty("descricao")
-    val description: Long
+    val description: String
 )
 
 data class TransactionResponseDTO(
@@ -21,8 +20,3 @@ data class TransactionResponseDTO(
     @JsonProperty("saldo")
     val balance: Long
 )
-
-enum class TransactionType(acronym: String) {
-    CREDIT("c"),
-    DEBIT("d")
-}
