@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - "default"
+
+networks:
+  default:
+    driver: bridge
+    name: rinha-nginx-2024q1

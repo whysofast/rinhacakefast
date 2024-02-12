@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class RinhacakefastApplication
+class RinhaCakeFastApplication
 
 fun main(args: Array<String>) {
-    runApplication<RinhacakefastApplication>(*args)
+    runApplication<RinhaCakeFastApplication>(*args)
 }
